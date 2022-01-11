@@ -27,6 +27,8 @@ git commit     = confirmar los cambios que han sido preparados
   git commit -v
   git commit -m
   git commit -a -m "Mensaje" = Prepara y al mismo tiempo confirma los cambios que se tienen
+  git commit --amend = Rehacer la confirmacion que recientemente se hizo. Archivos olvidados
+
 
 git rm          = eliminar archivo del directorio de trabajo, si se hace con rm se ira al unstage
   git rm -f     = forzar eliminacion de archivo
@@ -61,6 +63,32 @@ git log         = visualizar historial de confirmaciones
   git log --abbrev-commit
   git log --relative-date
   git log --oneline
+
+  --since = desde 
+  --until = hasta
+
+  git log --since=2.weeks = commits hechos las ultimas dos semanas
+  git log --since="2 years 1 day 3 minutes ago" = commits de hace 2 anios, 1 dia, 3 minutos
+  git log --since="2022-01-10"
+  
+  git log --author
+  
+  git log -Sfunction_name = busca la funcion indicada entre los commits
+  
+
+  git log:
+  -(n)                = n commits que se quieren visualizar
+  --since, --after    = despues de la fecha especificada
+  --until, --before   = antes de la fecha especificada
+  --author            = autor que coincide con la cadena indicada
+  --committer         = confirmador que coincide con la cadena indicada
+  -S                  = confirmaciones que aniaden o eliminan codigo de acuerdo a cadena indicada
+
+  git log --pretty="%h - %s" --author=solares --since="2022-01-01" --before="2022-01-11" --no-merges
+  -- t/
+
+
+
 
 Fases de git
 Untracked - Unmodified - Modified - Staged
