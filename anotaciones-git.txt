@@ -1,0 +1,11 @@
+git init        = iniciar a controlar proyecto con git
+
+git config      = visualizar las configuraciones de actuales, o, para fijar configuraciones
+  git config --global user.name "Bryan Solares"
+  git config --global user.email "solares.josue@outlook.com"
+  git config --global core.editor nombreeditor
+  git config --list
+
+git help <verbo> = visualiziar ayuda de cierto comando
+
+
