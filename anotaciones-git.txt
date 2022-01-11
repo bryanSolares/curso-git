@@ -8,4 +8,42 @@ git config      = visualizar las configuraciones de actuales, o, para fijar conf
 
 git help <verbo> = visualiziar ayuda de cierto comando
 
+git add          = agregar archivos del working directory al stage directory
+
+git clone [url] = clonar repositorio
+
+git status      = comprobar estado actual de los archivos
+  git status --short
+  git status -s
+  ?? = archivos nuevos que no estan rastreados
+  A  = archivos que estan preparados
+  M  = archivos que han sido modificados
+
+git diff       = muestra lo agregado, modificado o eliminado de los archivos que se estan trabajando
+  git diff --stage = muestra los cambios ultimos hechos contra lo preparado
+  git diff --cached = sinonimo de stage
+
+git commit     = confirmar los cambios que han sido preparados
+  git commit -v
+  git commit -m
+  git commit -a -m "Mensaje" = Prepara y al mismo tiempo confirma los cambios que se tienen
+
+git rm          = eliminar archivo del directorio de trabajo, si se hace con rm se ira al unstage
+  git rm -f     = forzar eliminacion de archivo
+  git rm --cached nombrearchivo = Eliminar archivo, manteniendolo en directorio de trabajo pero git
+                                    no lo tomara en consideracion
+
+git log         = visualizar historial de confirmaciones
+  git log -p    = muestra historial + los cambios hechos en ellos
+  git log -p -2 = muestra dos ultimas entradas del historial
+  
+
+
+Fases de git
+Untracked - Unmodified - Modified - Staged
+
+Para ignorar archivos o carpetas se pueden indicar en un archivo .gitignore ->
+https://github.com/github/gitignore
+
+
 
