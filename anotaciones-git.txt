@@ -36,8 +36,31 @@ git rm          = eliminar archivo del directorio de trabajo, si se hace con rm 
 git log         = visualizar historial de confirmaciones
   git log -p    = muestra historial + los cambios hechos en ellos
   git log -p -2 = muestra dos ultimas entradas del historial
-  
-
+  git log --stat
+  git log --pretty=oneline | short | full | fuller
+  git log --pretty=format:"%h - %an, %ar : %s"
+    %H = Hash de la confirmacion
+    %h = Hash de la confirmacion abreviado
+    %T = Hash del arbol
+    %t = Hash del arbol abreviado
+    %P = Hash de las confirmaciones padre
+    %p = Hash de las confirmaciones padre abreviado
+    %an = Nombre del autor
+    %ae = Direccion del correo electronico
+    %ad = Fecha de autoria (el formato respeta la opcion --date)
+    %ar = Fecha de autoria, relativa
+    %cn = Nombre del confirmador
+    %ce = Direccion del correo del confirmador
+    %cd = Fecha de confirmacion
+    %cr = Fecha de confirmacion, relativa
+    %s  = Asunto
+  git log --pretty=format:"%h %s" --graph = graph agrega un grafico ascii
+  git log --shortstat
+  git log --name-only
+  git log --name-status
+  git log --abbrev-commit
+  git log --relative-date
+  git log --oneline
 
 Fases de git
 Untracked - Unmodified - Modified - Staged
