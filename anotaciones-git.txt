@@ -91,7 +91,10 @@ git reset HEAD <nombrearchivo> = deshacer un archivo preparado
 
 git checkout -- <nombrearchivo> = deshacer un archivo modificado (no se puede recuperar informacion)
 
-
+**** REMOTOS *****
+git remote            = ver los remotos que se tienen agregardos, por defecto se nombran con origin
+git remote -v          = ver los remotos + url de cada uno de ellos
+git remote add [nombre] [url] = aniadir un remoto con nombre personalizado
 
 
 Fases de git
