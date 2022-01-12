@@ -125,7 +125,13 @@ git checkout [branch-name]  = moverse a la rama indicada
 git checkout -b [branch-name] = crear nueva rama y al mismo tiempo se mueve a ella
 git merge [branch-name]       = funcionar rama indicada con rama actual
 git branch -d [branch-name]   = eliminar rama que ya puede estar fusionada con master (recomendable)
+git branch -D [branch-name]   = forzar eliminarcion de rama (error da cuando no estan fusionadas)
 
+**** GESTION DE RAMAS ****
+git branch                  = se visualiza el listado de ramas disponibles
+git branch -v               = se visualiza la ultima confirmacion de cada rama disponible
+git branch --merged         = visualizar las ramas que han sido fusionadas con rama master
+git branch --no-merged      = visualizar las ramas que no han sido fusionadas con rama master
 
 
 
@@ -134,6 +140,10 @@ git branch -d [branch-name]   = eliminar rama que ya puede estar fusionada con m
 puede hacer fusion por:
 - fast-forward
 - recursive-strategy
+
+dos tipos de ramas:
+- ramas de larga duracion
+- ramas puntuales
 
 git log --oneline --decorate --graph --all = ver con ascii las ramas y los commits
 
