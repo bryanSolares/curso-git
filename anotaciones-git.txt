@@ -89,6 +89,9 @@ git log         = visualizar historial de confirmaciones
 
 git reset HEAD <nombrearchivo> = deshacer un archivo preparado
 
+git checkout -- <nombrearchivo> = deshacer un archivo modificado (no se puede recuperar informacion)
+
+
 
 
 Fases de git
