@@ -89,8 +89,11 @@ git log         = visualizar historial de confirmaciones
   git log --pretty="%h - %s" --author=solares --since="2022-01-01" --before="2022-01-11" --no-merges
   -- t/
 
-git reset HEAD <nombrearchivo> = deshacer un archivo preparado
+git reset [hash-commit]         = eliminar commit y llevara los archivos al unstage
+git reset --soft [hash-commit]  = eliminar commit y llevara los archivos al stage
+git reset --hard [hash-commit]  = eliminar commit y no dejara rastro del commit
 
+git reset HEAD <nombrearchivo> = deshacer un archivo preparado
 git checkout -- <nombrearchivo> = deshacer un archivo modificado (no se puede recuperar informacion)
 
 **** REMOTOS *****
