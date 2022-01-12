@@ -119,6 +119,26 @@ git checkout -b [branch-name] [label] = para crear rama a partir de la etiqueta 
 **** ALIAS EN GIT ****
 git config --global alias.[alias] [comando]
 
+**** RAMIFICACIONES EN GIT ****
+git branch [branch-name]    = crear una rama nueva con el nombre indicado
+git checkout [branch-name]  = moverse a la rama indicada
+git checkout -b [branch-name] = crear nueva rama y al mismo tiempo se mueve a ella
+git merge [branch-name]       = funcionar rama indicada con rama actual
+git branch -d [branch-name]   = eliminar rama que ya puede estar fusionada con master (recomendable)
+
+
+
+
+
+
+puede hacer fusion por:
+- fast-forward
+- recursive-strategy
+
+git log --oneline --decorate --graph --all = ver con ascii las ramas y los commits
+
+
+
 
 Fases de git
 Untracked - Unmodified - Modified - Staged
