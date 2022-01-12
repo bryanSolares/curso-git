@@ -105,6 +105,18 @@ git remote show [remote-name] = muestra informacion mas detalla sobre el remoto 
 git remote rename [remote-name-current] [remote-name-new] = Cambiar nombre de remoto
 git remote rm [remote-name] = eliminar remoto no deseado
 
+**** ETIQUETADOS ****
+git tag                     = listar las etiquetas que se tienen en orden alfabetico
+git tag -l 'v.1.8.5'        = listar las etiquetas que coinciden con lo indicado
+git tag -a v1.0.0 -m 'msg'  = agregar nueva etiqueta anotada y un mensaje especifico
+  git show v1.0.0           = visualiza los datos del commit relacionado a la etiqueta indicada
+git tag v2.0.0              = etiqueta ligera, no contiene detalle mayor a solo la etiqueta
+git tag -a v1.2.0 [hash]    = agregar etiqueta a un commit antiguo, etiquetas tardias
+git push origin [etiqueta]  = para subir a servidor etiqueta deseada
+git push origin --tags      = para subir a servidor todas la etiquetas
+git checkout -b [branch-name] [label] = para crear rama a partir de la etiqueta indicada
+
+
 
 Fases de git
 Untracked - Unmodified - Modified - Staged
