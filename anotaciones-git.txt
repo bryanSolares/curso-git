@@ -5,6 +5,8 @@ git config      = visualizar las configuraciones de actuales, o, para fijar conf
   git config --global user.email "solares.josue@outlook.com"
   git config --global core.editor nombreeditor
   git config --list
+  git config --global credential.helper cache = crear un cache con credenciales para no digitar
+  siempre
 
 git help <verbo> = visualiziar ayuda de cierto comando
 
@@ -133,7 +135,22 @@ git branch -v               = se visualiza la ultima confirmacion de cada rama d
 git branch --merged         = visualizar las ramas que han sido fusionadas con rama master
 git branch --no-merged      = visualizar las ramas que no han sido fusionadas con rama master
 
+**** RAMAS REMOTAS *****
+git fetch origin            = actualiza apuntador segun apuntador de servidor
+git push origin server:server = enviar modificaciones a servidor y rama de ese servidor
+git checkout -b [branch-name] server/branch = crear nueva rama segun rama extraida de servido (por
+defecto es de lectura las ramas que se extraen del servidor)
 
+**** SEGUIMIENTOS A RAMAS ****
+git checkout --track server/[branch-name] = seguimiento a rama
+git checkout -b [branch-new-name] server/[branch-name]  = crear rama personalizada que hace
+seguimiento a rama deseada
+git branch -u | --set-upstream-to server/[branch-name] = darle a rama actual el seguimiento de la
+rama indicada
+git merge @{u} | @{upstream} = git merge origin/master = atajo para fusionar rama de seguimiento
+git branch -vv               = visualizar ramas a las que se les da seguimiento
+git fetch --all              = traer de los servidos que cambios hay por detras y por delante de
+acuerdo a lo que se va trabajando en la rama a la que se le da seguimiento
 
 
 
