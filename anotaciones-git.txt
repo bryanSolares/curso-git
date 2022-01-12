@@ -96,6 +96,15 @@ git remote            = ver los remotos que se tienen agregardos, por defecto se
 git remote -v          = ver los remotos + url de cada uno de ellos
 git remote add [nombre] [url] = aniadir un remoto con nombre personalizado
 
+**** TRAER Y COMBINAR REMOTOS ****
+git fetch [remote-name]   = obtener datos de un remoto, solo extrae la informacion, no combina ni
+                            modifica el trabajo que se lleva
+git pull [remote-name]    = obtener datos de una remoto, intentara combinar los datos
+git push [remote-name] [branch-name] = para enviar la informacion local a servidor
+git remote show [remote-name] = muestra informacion mas detalla sobre el remoto indicado
+git remote rename [remote-name-current] [remote-name-new] = Cambiar nombre de remoto
+git remote rm [remote-name] = eliminar remoto no deseado
+
 
 Fases de git
 Untracked - Unmodified - Modified - Staged
