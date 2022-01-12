@@ -116,6 +116,8 @@ git push origin [etiqueta]  = para subir a servidor etiqueta deseada
 git push origin --tags      = para subir a servidor todas la etiquetas
 git checkout -b [branch-name] [label] = para crear rama a partir de la etiqueta indicada
 
+**** ALIAS EN GIT ****
+git config --global alias.[alias] [comando]
 
 
 Fases de git
