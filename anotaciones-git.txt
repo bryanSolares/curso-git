@@ -162,7 +162,28 @@ git fetch                   = extrae pero no fusiona (recomendado)
 **** ELIMINAR RAMAS REMOTAS ****
 git push origin --delete [branch-name]    = para eliminar rama que apunta a remoto luego de pushear los datos
 
+**** REORGANIZACION DEL TRABAJO REALIZADO *****
+git rebase [branch-name]          = capturacion de cambios en rama y aplicarlos a la actual
+git rebase --onto [branch-main] [branch-1] [branch-2] = Activa la rama-2, averiguar los cambios
+                                                        ancesos comunes entre rama1 y rama2 y aplicarlos a rama main
+git rebase [branch-base] [branch-puntual]
 
+ejemplo de lo anterior:
+git checkout -b server
+git checkout master
+git checkout -b client
+git rebase --onto master server client
+git checkout master
+git merge client
+git rebase master server
+git checkout master
+git merge server
+git branch -d client
+git branch -d server
+
+se pueden integrar cambios por dos formas:
+1. fusion (merge)
+2. reorganizacion (rebase)
 
 
 
