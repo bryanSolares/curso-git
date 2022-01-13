@@ -153,7 +153,17 @@ rama indicada
 git merge @{u} | @{upstream} = git merge origin/master = atajo para fusionar rama de seguimiento
 git branch -vv               = visualizar ramas a las que se les da seguimiento
 git fetch --all              = traer de los servidos que cambios hay por detras y por delante de
-acuerdo a lo que se va trabajando en la rama a la que se le da seguimiento
+                                acuerdo a lo que se va trabajando en la rama a la que se le da seguimiento
+
+**** TRAER Y FUSIONAR ****
+git pull                    = extrae y fusiona
+git fetch                   = extrae pero no fusiona (recomendado)
+
+**** ELIMINAR RAMAS REMOTAS ****
+git push origin --delete [branch-name]    = para eliminar rama que apunta a remoto luego de pushear los datos
+
+
+
 
 
 
