@@ -185,9 +185,6 @@ se pueden integrar cambios por dos formas:
 1. fusion (merge)
 2. reorganizacion (rebase)
 
-
-
-
 puede hacer fusion por:
 - fast-forward
 - recursive-strategy
@@ -198,14 +195,125 @@ dos tipos de ramas:
 
 git log --oneline --decorate --graph --all = ver con ascii las ramas y los commits
 
-
-
-
 Fases de git
 Untracked - Unmodified - Modified - Staged
 
 Para ignorar archivos o carpetas se pueden indicar en un archivo .gitignore ->
 https://github.com/github/gitignore
+
+**** GIT EN EL SERVIDOR ****
+Protocolos:
+  1. Local
+    git clone /opt/git/project.git
+    git clone file:///opt/project.git
+    git remote add local_project /opt/project.git
+    git pull /home/john/project
+  2. HTTP
+    git clone https://example.com/gitproject.git
+  3. SSH
+    git clone ssh://user@user/project.id
+    git clone user@user:project.id
+  4. Git (puerto dedicado 9418)
+    
+
+****Creacion se servidor
+git clone --bare my_project my_project.git
+cp -Rf my_project/.git my_project.git
+scp -r my_project.git user@git.example.com:/opt/git
+git clone user@git.example.com:/opt/git/my_project.git
+
+****Generando claves publicas ssh
+ssh-keygen
+cat ~/.ssh/clave.pub
+
+***Creacion de usuarios
+sudo adduser git
+su git
+cd
+mkdir .ssh && chmod 700 .ssh
+touch .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+cat /temp/id_rsa.jhon.pub >> ~/.ssh/authorized_keys
+cat /temp/id_rsa.josie.pub >> ~/.ssh/authorized_keys
+
+cd /opt/git
+mkdir project.git
+cd project.git
+git init --bare
+
+on Jhons computer
+cd my_project
+git init
+git add .
+git commit -m 'Initial commit'
+git remote add origin git@gitserver:/opt/git/project.git
+git push origin master
+
+git clone git@gitserver:/opt/git/project.git
+
+***Configurado shell para git
+$ cat /etc/shells # mirar si `git-shell` ya está aquí. Si no...
+$ which git-shell # buscar `git-shell` en nuestro sistema
+$ sudo vim /etc/shells # y añadirlo al final de este archivo con el camino (path) completo
+$ sudo chsh git # poner aquí la nueva shell, normalmente será: /usr/bin/git-shell
+
+***El demonio GIT
+git daemon --reuseraddr --base-path=/opt/git /opt/git
+/etc/event.d/local-git-daemon
+  start on startup
+  stop on shutdown
+  exec /user/bin/git daemon \
+    --user=git --group=git \
+    --reuseaddr \
+    --base-path=/opt/git \
+    /opt/git
+  respawn
+
+  initctl start local-git-daemon
+
+  cd /path/to/project.git
+  touch git-daemon-export-ok
+
+ ****HTTP Inteligente (con apache)
+sudo apt-get install apache2 apache2-utils
+a2enmod cgi alias env
+
+SetEnv GIT_PROJECT_ROOT /opt/git
+SetEnv GIT_HTTP_EXPORT_ALL
+ScriptAlias /git/ /usr/libexec/git-core/git-http-backend/
+
+<Directory "/usr/lib/git-core*">
+  Options ExecCGI Indexes
+    Order allow,deny
+      Allow from all
+        Require all granted
+        </Directory>
+
+<LocationMatch "^/git/.*/git-receive-pack$">
+  AuthType Basic
+  AuthName "Git Access"
+  AuthUserFile /opt/git/.htpasswd
+  Require valid-user
+</LocationMatch>
+
+$ htdigest -c /opt/git/.htpasswd "Git Access" schacon
+
+
+Servidores livianos
+lighttpd
+webrick
+
+****GITLAB
+- incidencias (issues)
+- organizacion de hitos (milestones)
+- wikis
+
+
+
+
+
+
+
+
 
 
 
