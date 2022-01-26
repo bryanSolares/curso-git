@@ -24,6 +24,7 @@ git status      = comprobar estado actual de los archivos
 git diff       = muestra lo agregado, modificado o eliminado de los archivos que se estan trabajando
   git diff --stage = muestra los cambios ultimos hechos contra lo preparado
   git diff --cached = sinonimo de stage
+  git diff --check = identifica donde hay espacios en blancos
 
 git commit     = confirmar los cambios que han sido preparados
   git commit -v
@@ -307,6 +308,9 @@ webrick
 - organizacion de hitos (milestones)
 - wikis
 
+***** GIT EN ENTORNOS DISTRIBUIDOS ****
+Administrador - Integracion
+Dictador - Teniente
 
 
 
