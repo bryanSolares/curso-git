@@ -311,9 +311,53 @@ webrick
 ***** GIT EN ENTORNOS DISTRIBUIDOS ****
 Administrador - Integracion
 Dictador - Teniente
+Pequenio Equipo Privado
+Equipo privado administrado
+Proyecto Publico Bifurcado
+Proyectos Publicos atravez de emails
+  configuracion en ~/.gitconfig
+  [imap]
+  folder = "[Gmail]/Drafts"
+  host = imaps://imap.gmail.com
+  user = user@gmail.com
+  pass = p4ssw0rd
+  port = 993
+  sslverify = false
 
 
+git request-pull origin/master myfork
+git merge --no-commit --squash branchname
+git format-patch -M origin master
+git send-email *.patch
 
+**** MANTENIENDO UN PROYECTO ****
+- Trabajando en Ramas Puntuales
+  git branch sc/ruby_client master
+  git checkout -b sc/ruby_client master
+
+- Aplicando parches recibidos por email
+  git apply = git apply /tmp/patch-ruby-client.patch
+              git apply --check /tmp/patch-ruby-client.patch
+  git am = git am 0001-limit-log-function.patch
+
+- Recuperando Ramas Remotas
+  git log ramalocal --not master
+  git diff master...otrarama
+
+- Integrando el trabajo de los colaboradores
+  - Integrando flujos de trabajo
+  - Flujos de trabajo de grandes integraciones
+  - Flujos de trabajo reorganizando o entresacando
+    git cherry-pick
+    git config --global rerere.enabled true
+    gir rerere
+    gpg -a --export F721C45A | git hash-object -w --stdin
+    git tag -a maintainer-pgp-pub 659ef797d181633c87ec71ac3f9ba29fe5775b92
+    git show maintainer-pgp-pub | gpg --import
+    git describe master
+    git archive master --prefix='project/' | gzip > `git describe master`.tar.gz
+    git archive master --prefix='project/' --format=zip > `git describe master`.zip
+    git shortlog --no-merges master --not v1.0.1
 
 
 
